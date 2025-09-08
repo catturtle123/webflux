@@ -1,0 +1,9 @@
+logging:
+  level:
+    root: INFO
+
+llm:
+  gpt:
+    key: ${GPT_KEY}
+  gemini:
+    key: ${GEMINI_KEY}
