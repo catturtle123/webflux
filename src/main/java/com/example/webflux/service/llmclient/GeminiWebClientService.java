@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class GeminiWebClientSerivce implements LlmWebClientService {
+public class GeminiWebClientService implements LlmWebClientService {
 
     private final WebClient webClient;
 

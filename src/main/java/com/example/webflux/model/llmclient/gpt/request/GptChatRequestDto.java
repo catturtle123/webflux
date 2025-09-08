@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class GPTChatRequestDto implements Serializable {
+public class GptChatRequestDto implements Serializable {
     @Serial
     private static final long serialVersionUID = 6553236843017158940L;
 
@@ -22,7 +22,7 @@ public class GPTChatRequestDto implements Serializable {
     private Boolean stream;
     private GptResponseFormat response_format;
 
-    public GPTChatRequestDto(LlmChatRequestDto llmChatRequestDto) {
+    public GptChatRequestDto(LlmChatRequestDto llmChatRequestDto) {
         if (llmChatRequestDto.isUseJson()) {
             this.response_format = new GptResponseFormat("json_object");
         }

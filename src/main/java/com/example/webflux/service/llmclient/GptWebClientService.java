@@ -3,7 +3,7 @@ package com.example.webflux.service.llmclient;
 import com.example.webflux.model.llmclient.LlmChatRequestDto;
 import com.example.webflux.model.llmclient.LlmChatResponseDto;
 import com.example.webflux.model.llmclient.LlmType;
-import com.example.webflux.model.llmclient.gpt.request.GPTChatRequestDto;
+import com.example.webflux.model.llmclient.gpt.request.GptChatRequestDto;
 import com.example.webflux.model.llmclient.gpt.response.GptChatResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +25,7 @@ public class GptWebClientService implements LlmWebClientService {
 
     @Override
     public Mono<LlmChatResponseDto> getChatCompletion(LlmChatRequestDto requestDto) {
-        GPTChatRequestDto gptChatRequestDto = new GPTChatRequestDto(requestDto);
+        GptChatRequestDto gptChatRequestDto = new GptChatRequestDto(requestDto);
         return webClient.post()
                 .uri("https://api.openai.com/v1/chat/completions")
                 .header("Authorization", "Bearer " + gptApiKey)
