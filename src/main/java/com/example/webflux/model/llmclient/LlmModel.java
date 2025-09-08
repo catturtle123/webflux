@@ -20,6 +20,6 @@ public enum LlmModel {
     @JsonValue
     @Override
     public String toString() {
-        return  code;
+        return code;
     }
 }

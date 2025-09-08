@@ -32,9 +32,9 @@ public class GptWebClientService implements LlmWebClientService {
                 .bodyValue(gptChatRequestDto)
                 .retrieve()
                 .onStatus(HttpStatusCode::is4xxClientError, (clientResponse -> {
-                    return clientResponse.bodyToMono(String.class).flatMap(body ->{
-                            log.error("Error Response: {}", body);
-                            return Mono.error(new RuntimeException("API 요청 실패: " + body));
+                    return clientResponse.bodyToMono(String.class).flatMap(body -> {
+                        log.error("Error Response: {}", body);
+                        return Mono.error(new RuntimeException("API 요청 실패: " + body));
                     });
                 }))
                 .bodyToMono(GptChatResponseDto.class)

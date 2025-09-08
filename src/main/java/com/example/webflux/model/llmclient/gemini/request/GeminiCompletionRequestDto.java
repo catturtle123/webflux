@@ -1,6 +1,5 @@
 package com.example.webflux.model.llmclient.gemini.request;
 
-import com.example.webflux.model.llmclient.gpt.request.GPTMessageRole;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

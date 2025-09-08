@@ -5,7 +5,6 @@ import com.example.webflux.model.llmclient.LlmChatResponseDto;
 import com.example.webflux.model.llmclient.LlmType;
 import com.example.webflux.model.llmclient.gemini.request.GeminiChatRequestDto;
 import com.example.webflux.model.llmclient.gemini.response.GeminiChatResponseDto;
-import com.example.webflux.model.llmclient.gpt.response.GptChatResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,7 +32,7 @@ public class GeminiWebClientSerivce implements LlmWebClientService {
                 .bodyValue(geminiChatRequestDto)
                 .retrieve()
                 .onStatus(HttpStatusCode::is4xxClientError, (clientResponse -> {
-                    return clientResponse.bodyToMono(String.class).flatMap(body ->{
+                    return clientResponse.bodyToMono(String.class).flatMap(body -> {
                         log.error("Error Response: {}", body);
                         return Mono.error(new RuntimeException("API 요청 실패: " + body));
                     });

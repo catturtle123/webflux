@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Optional;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,7 +23,7 @@ public class GPTChatRequestDto implements Serializable {
     private GptResponseFormat response_format;
 
     public GPTChatRequestDto(LlmChatRequestDto llmChatRequestDto) {
-        if(llmChatRequestDto.isUseJson()) {
+        if (llmChatRequestDto.isUseJson()) {
             this.response_format = new GptResponseFormat("json_object");
         }
 

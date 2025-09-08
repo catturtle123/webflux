@@ -1,9 +1,7 @@
 package com.example.webflux.controller.user.chat;
 
-import com.example.webflux.model.llmclient.LlmType;
 import com.example.webflux.model.user.chat.UserChatRequestDto;
 import com.example.webflux.model.user.chat.UserChatResponseDto;
-import com.example.webflux.service.llmclient.LlmWebClientService;
 import com.example.webflux.service.user.chat.UserChatService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("/chat")
