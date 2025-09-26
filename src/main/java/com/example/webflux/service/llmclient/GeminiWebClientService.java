@@ -1,5 +1,8 @@
 package com.example.webflux.service.llmclient;
 
+import com.example.webflux.exception.CommonError;
+import com.example.webflux.exception.CustomErrorType;
+import com.example.webflux.exception.ErrorTypeException;
 import com.example.webflux.model.llmclient.LlmChatRequestDto;
 import com.example.webflux.model.llmclient.LlmChatResponseDto;
 import com.example.webflux.model.llmclient.LlmType;
@@ -35,7 +38,7 @@ public class GeminiWebClientService implements LlmWebClientService {
                 .onStatus(HttpStatusCode::is4xxClientError, (clientResponse -> {
                     return clientResponse.bodyToMono(String.class).flatMap(body -> {
                         log.error("Error Response: {}", body);
-                        return Mono.error(new RuntimeException("API 요청 실패: " + body));
+                        return Mono.error(new ErrorTypeException("API 요청 실패: " + body, CustomErrorType.GEMINI_RESPONSE_ERROR));
                     });
                 }))
                 .bodyToMono(GeminiChatResponseDto.class)
@@ -59,10 +62,11 @@ public class GeminiWebClientService implements LlmWebClientService {
                 .onStatus(HttpStatusCode::is4xxClientError, (clientResponse -> {
                     return clientResponse.bodyToMono(String.class).flatMap(body -> {
                         log.error("Error Response: {}", body);
-                        return Mono.error(new RuntimeException("API 요청 실패: " + body));
+                        return Mono.error(new ErrorTypeException("API 요청 실패: " + body, CustomErrorType.GEMINI_RESPONSE_ERROR));
                     });
                 }))
                 .bodyToFlux(GeminiChatResponseDto.class)
+                // 매핑하는데 100개 중 1개가 실패시 전체의 실패로 가져가고 싶지 않음
                 .map(LlmChatResponseDto::new)
                 ;
     }
