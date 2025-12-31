@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.config.CorsRegistry;
 import org.springframework.web.reactive.config.WebFluxConfigurer;
 
+// Global CORS configuration for WebFlux application
 @Configuration
 public class CorsGlobalConfig implements WebFluxConfigurer {
 

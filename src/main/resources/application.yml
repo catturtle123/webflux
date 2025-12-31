@@ -1,7 +1,9 @@
+# Application Configuration File
 logging:
   level:
     root: INFO
 
+# LLM Configuration
 llm:
   gpt:
     key: ${GPT_KEY}

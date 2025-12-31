@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+// Common configuration class for LLM WebClient services
 @Configuration
 public class CommonConfig {
 
