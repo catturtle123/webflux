@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+// User chat controller to handle chat-related endpoints
 @RestController
 @RequestMapping("/chat")
 @RequiredArgsConstructor

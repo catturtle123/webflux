@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+// Facade controller to handle facade-related endpoints
 @RestController
 @RequestMapping("/facade")
 @RequiredArgsConstructor
